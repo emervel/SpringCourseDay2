@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+          http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+">
+<!--Para poder definir nosotros en vez de Spring el orden de instanciación y eliminación podemos usar depend-on
+<bean class="A" depends-on="otroBean">
+<bean class="B" id="otroBean">
+-->
+    <bean class="beans.Persona" id="persona" autowire="byType">
+        <property name="nombre" value="Eduardo" />
+        <property name="perfil" ref="perfil"/>
+<!--        <property name="aficiones" ref="aficiones"/>-->
+    </bean>
+    <bean class="beans.Perfil" id="perfil"/>
+<!--    <bean class="beans.Aficion" id="aficiones"/>-->
+    <bean class="beans.Aficion"/>
+    <bean class="beans.Aficion"/>
+
+</beans>
