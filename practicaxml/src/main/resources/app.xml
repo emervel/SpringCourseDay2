@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+">
+    
+    <!--Esto crea una persona configurada con roles usando el espacio de nombres para no escribir tanto xml-->
+    
+    <!-- p hace referencia al espacio de nombre properties y c al espacio de nombres constructor-->
+    <!-- p:nombre="abc" seria lo mismo que <property name="nombre" value="abc"> dentro de un bean-->
+    <!-- p:aficion-ref="aaa" seria lo mismo que <property name="aficion" ref="aa"> dentro de un bean-->
+    
+    <!-- c:_0="aficion2" c:_1="aficion2" seria lo mismo que llamar a un constructor de la clase bean que lo contiene y que tenga dos parametros-->
+
+    <!--Hay 3 formas de usar los properties, etiqueta properties, espacio de nombres y autocableado por type-->
+    <!--Y igualmente hay 3 formas de usar los constructores, etiqueta constructor-arg, espacio de nombres y autocableado por constructor-->
+
+    <bean class="beans.Persona" p:nombre="abc" autowire="byType"/>
+    <bean class="beans.Rol" p:nombre="aficion1"/>
+    <bean class="beans.Rol" c:_0="aficion2"/>
+</beans>

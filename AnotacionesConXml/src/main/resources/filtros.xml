@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+          http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+">
+    <context:component-scan base-package="com.curso.filtros">
+        <!--El siguiente es un filtro de inclusion para darle al component scan un comportamiento que habitualmente no tiene-->
+        <!--En este caso si encuentra una clase que acabe en filtrada, la preinstanciará como un singleton-->
+        <context:include-filter type="regex"
+                expression=".*Filtrada"/>
+        <!--El siguiente es un filtro para evitar que al hacer un component scan NO se instancien los @Component-->
+        <context:exclude-filter type="annotation"
+                expression="org.springframework.stereotype.Component"/>
+    </context:component-scan>
+</beans>

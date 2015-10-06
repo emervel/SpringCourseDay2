@@ -1,0 +1,55 @@
+Ciclo de vida		XML			
+-------------		---			
+
+@Required			N/A			
+Sirve para indicar que una propiedad es tan crítica que como no esté inicializada se para la aplicacion. En XML no tiene un equivalente directo
+
+@Autowired			byType		
+Autocableado por tipo. En anotaciones todas las dependencias entre objetos están autocableadas. No hay etiqueta properties en anotaciones, así que solo es posible autocablear. Y en anotaciones por defecto es obligatorio tener valores que autocableemos por lo que si no encuentra ninguno en vez de dejarlo a null (como en xml) se para la aplicación. Esta instrucción se puede aplicar tanto a objetos simples, como a listas, como a constructores.
+
+@Resource			byName		@Repository
+Autocableado por nombre. Es como el xml, pero teniendo en cuenta que si no encuentra el bean por nombre, realizará automáticamente el autocableado por tipo
+
+@Scope			scope			@Controller
+Para que no sea una clase de tipo Singleton
+
+@Lazy				lazy-init
+@DependsOn			depends-on
+Para inidicar que dependes de un bean para instanciar otro
+
+@PostConstruct		init-method
+Cuando inicializa el ciclo de vida de un bean
+
+@PreDestroy		destroy-method
+Cuando finaliza el ciclo de vida de un bean
+
+
+
+
+Instanciación		XML
+--------------		----
+Estas anotaciones hay que usarlas a nivel de clase
+
+@Component			bean
+@Service			bean
+Estas dos preinstancian un singleton (como si fuese un bena en xml). Ambas hacen lo mismo pero se llaman distinto para diferenciarlas conceptualmente
+
+@Repository		bean
+@Controller		bean
+Tb hacen preinstancias de un singleton pero de formas distintas
+
+
+
+
+Otras
+-----
+@Inject
+@Named
+@Configuration
+@Bean
+@ComponentScan
+@PropertySource
+@Import
+@ImportResource
+@Profile
+@EnableXXX
