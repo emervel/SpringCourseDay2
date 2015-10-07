@@ -1,9 +1,9 @@
-package com.curso.was61;
+package com.curso.was62;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import beans.Persona;
+import com.curso.was62.beans.Persona;
 
 public class Principal {
 

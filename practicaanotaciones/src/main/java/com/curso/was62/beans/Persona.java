@@ -1,4 +1,4 @@
-package beans;
+package com.curso.was62.beans;
 
 import java.util.List;
 import javax.annotation.Resource;
